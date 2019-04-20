@@ -1,5 +1,7 @@
 
 import pickle
+import numpy as np
+import pandas as pd
 from sklearn import linear_model
 
 with open('saved_model.pkl','rb') as f:
@@ -13,7 +15,7 @@ def predict_median_price(request):
     median_rent = request.args.get('median_rent') or 1
     percent_transport = request.args.get('percent_transport') or 1
 
-    print([
+    print('input:',[
         zip_code,
         median_household_income,
         uneployment,
@@ -22,11 +24,13 @@ def predict_median_price(request):
         percent_transport
     ])
 
-    return model.predict([
+    in_data = np.array([[
         zip_code,
         median_household_income,
         uneployment,
         large_households,
         median_rent,
         percent_transport
-    ])
+        ]]).astype(np.float64)
+
+    return str(model.predict(in_data).item())

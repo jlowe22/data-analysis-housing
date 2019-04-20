@@ -1,0 +1,12 @@
+[
+    {
+        "prompt": "Are you a potato?",
+        "value":"",
+        "key": "potato"
+    },
+    {
+        "prompt": "How old are you?",
+        "value":"",
+        "key":"age"
+    }
+]
