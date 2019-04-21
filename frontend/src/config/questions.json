@@ -1,12 +1,165 @@
 [
     {
-        "prompt": "Are you a potato?",
-        "value":"",
-        "key": "potato"
+        "prompt": "What is the lot area of the house? (Enter in square feet)",
+        "key": "LotArea",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
     },
     {
-        "prompt": "How old are you?",
-        "value":"",
-        "key":"age"
+        "prompt": "Rate the overall quality and finish of your house. (Rate them from 1 Very Poor to 10 Excellent)",
+        "key": "OverallQual",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "min": 1,
+            "max": 10,
+            "message": "Please enter an integer between 1 and 10."
+        }
+    },
+    {
+        "prompt": "Rate the overall condition of your house. (Rate them from 1 Very Poor to 10 Excellent)",
+        "key": "OverallCond",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "min": 1,
+            "max": 10,
+            "message": "Please enter an integer between 1 and 10."
+        }
+    },
+    {
+        "prompt": "What is the area of your masonry veneer? (Enter in square feet.)",
+        "key": "MasVnrArea",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "What is the area of your type 1 basement? (Enter in square feet.)",
+        "key": "BsmtFinSF1",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "What is the area of your unfinished basement? (Enter in square feet)",
+        "key": "BsmtUnfSF",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "What is the area of the first floor of your house? (Enter in square feet)",
+        "key": "1stFlrSF",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "What is the area of the second floor of your house? (Enter in square feet)",
+        "key": "2ndFlrSF",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "Does your house have a basement with a full bath? (1 for yes, 0 for no)",
+        "key": "BsmtFullBath",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "min": 0,
+            "max": 1,
+            "message": "Please enter either 0 or 1."
+        }
+    },
+    {
+        "prompt": "How many of your bedrooms are above the basement level? (Enter a numerical value)",
+        "key": "BedroomAbvGr",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "How many of your kitchens are above the basement level? (Enter a numerical value)",
+        "key": "KitchenAbvGr",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "How many rooms (that are above your basement) are in your house? (Enter a numerical value.)",
+        "key": "TotRmsAbvGrd",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "How many fireplaces are there in your house? (Enter a numerical value?)",
+        "key": "Fire2laces",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "What year is your garage built? (Enter a 4 digit year.)",
+        "key": "GarageYrBlt",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "min": 1900,
+            "max": 2019,
+            "message": "Please enter a year between 1900 and 2019."
+        }
+    },
+    {
+        "prompt": "What is the car capacity of your garage? (Enter number of cars.)",
+        "key": "GarageCars",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "min": 0,
+            "max": 100,
+            "message": "Please enter an integer between 0 and 100."
+        }
+    },
+    {
+        "prompt": "What is the area of the wood deck of your house? (Enter in square feet.)",
+        "key": "WoodDeckSF",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
+    },
+    {
+        "prompt": "What is the screen porch area of the house? (Enter in square feet.)",
+        "key": "ScreenPorch",
+        "value": "",
+        "validation": {
+            "type": "integer",
+            "message": "Please enter an integer."
+        }
     }
 ]

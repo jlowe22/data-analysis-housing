@@ -1,6 +1,6 @@
 import React from 'react'
-import { Form, Input, Row, Col, } from 'antd';
-import original_questions from '../config/questions.json';
+import { Form, Input, Row, Col, Button } from 'antd';
+
 
 const CustomizedForm = Form.create({
   name: 'survey',
@@ -21,59 +21,71 @@ const CustomizedForm = Form.create({
 })((props) => {
   const { getFieldDecorator } = props.form;
   return (
-    <Form layout="vertical">
+    <Form layout="vertical" onSubmit={(e) => {
+      e.preventDefault()
+      console.log('before submit: ', props.questions)
+      props.history.push('/result')
+    }}>
         {props.questions.map( (question) => {
-            const {key, prompt} = question
+            const {key, prompt, validation} = question
             return (
                 <Form.Item key={key} label={prompt}>
                     {getFieldDecorator(key, {
-                    rules: [{ required: true, message: key + ' is required!' }],
+                    rules: [
+                      { required: true, message: key + ' is required!' },
+                      {...validation, transform: (value) => parseInt(value,10)}],
+                    
                     })(<Input />)}
                 </Form.Item>
             )
         })
         }
+        {/* <Button type="primary" htmlType="submit" className="login-form-button" onSubmit={e => {
+          e.preventDefault()
+          console.log('submitted: ', this.props.questions)
+          }}>
+            Submit
+        </Button> */}
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            onSubmit={(e) => {console.log('')}}
+          >
+            Log in
+          </Button>
+        </Form.Item>
     </Form>
   );
 });
 
 export default class Survey extends React.Component {
-  state = {
-    questions: original_questions
-  };
-
-  handleFormChange = (changedFields) => {
-    // props.form.setFieldsValue(changedFields)
-    this.setState((oldState) => {
-        const newQuestions = oldState.questions
-        const changedKey = Object.keys(changedFields)[0]
-        const idx = newQuestions.findIndex((element) => element.key === changedKey)
-        newQuestions[idx] = changedFields[changedKey]
-        return {
-            questions: newQuestions
-        }
-    });
-  }
 
   render() {
-    const questions = this.state.questions;
+    const {handleFormChange, questions, history, fillFakeData} = this.props;
     return (
         <div style={{textAlign: 'center'}}>
+            <Row style={{paddingBottom: 20, paddingTop: 20}}>
+              <Button type="primary" onClick={fillFakeData}>
+                Generate Fake Data
+              </Button>
+            </Row>
             <Row type="flex" justify="space-around" align="middle">
-                <Col span={4}>
+                <Col span={10}>
                     <CustomizedForm 
                         questions={questions} 
-                        onChange={this.handleFormChange} 
+                        onChange={handleFormChange}
+                        history={history}
                     />
                 </Col>
             </Row>
-            <Row type="flex" justify="space-around" align="middle">
+            {/* <Row type="flex" justify="space-around" align="middle">
                 <Col span={10}>
                 <pre className="language-bash" style={{textAlign:'left'}}>
                 {JSON.stringify(questions, null, 2)}
                 </pre>
                 </Col>
-            </Row>
+            </Row> */}
             
         </div>
     );
