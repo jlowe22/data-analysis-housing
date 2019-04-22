@@ -23,7 +23,6 @@ const CustomizedForm = Form.create({
   return (
     <Form layout="vertical" onSubmit={(e) => {
       e.preventDefault()
-      console.log('before submit: ', props.questions)
       props.history.push('/result')
     }}>
         {props.questions.map( (question) => {

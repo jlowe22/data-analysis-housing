@@ -5,6 +5,12 @@ const {Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
 export default class Result extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            price: undefined
+        }
+    }
 
     componentDidMount() {
         const in_data = this.props.questions.reduce( (data,question) => {
@@ -23,6 +29,7 @@ export default class Result extends React.Component {
             .then(
                 (result) => {
                     console.log('GCF result: ', result)
+                    this.setState({price: result.toLocaleString("en-US",{style:"currency",currency:"USD"})})
                 }
             )
     }
@@ -30,7 +37,9 @@ export default class Result extends React.Component {
     render(){
         return (
             <div style={{textAlign: 'center'}}>
-
+                <div style={{height:100}}></div>
+                <Title level={3}>Your price estimate is...</Title>
+                {this.state.price && <Title level={2}> {this.state.price}</Title>}
             </div>
         );
     }
