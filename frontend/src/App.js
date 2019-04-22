@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink, Route, withRouter } from "react-router-dom";
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, PageHeader } from 'antd';
 import Home from './pages/Home';
 import Result from './pages/Result';
 import Survey from './pages/Survey';
@@ -77,6 +77,8 @@ class App extends React.Component{
 class MyMenu extends React.Component {
   render() {
     return(
+      <div>
+      
       <Menu
         theme="dark"
         mode="horizontal"
@@ -88,6 +90,7 @@ class MyMenu extends React.Component {
         <Menu.Item key="/survey"><NavLink to="/survey">Survey</NavLink></Menu.Item>
         <Menu.Item key="/result"><NavLink to="/result">Result</NavLink></Menu.Item>
       </Menu>
+      </div>
     )
   }
 }

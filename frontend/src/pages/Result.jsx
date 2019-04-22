@@ -1,5 +1,7 @@
 import React from "react";
-import { Typography, Divider, Layout,Menu, Breadcrumb } from 'antd';
+import { Typography, Layout,Menu, Breadcrumb } from 'antd';
+import Loader from 'react-loader-spinner'
+import { Link } from 'react-router-dom';
 
 const {Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
@@ -35,12 +37,34 @@ export default class Result extends React.Component {
     }
 
     render(){
-        return (
-            <div style={{textAlign: 'center'}}>
-                <div style={{height:100}}></div>
-                <Title level={3}>Your price estimate is...</Title>
-                {this.state.price && <Title level={2}> {this.state.price}</Title>}
-            </div>
-        );
+        if (this.props.questions.some( (item) => item.value === "")){
+            return (
+                <div style={{textAlign: 'center'}}>
+                    <div style={{height:50}}></div>
+                    <Title level={3}> Please finish filling out our survey in the <Link to="/survey">survey tab</Link>.</Title>
+                </div>
+            )
+        } else if (this.state.price == undefined){
+            return (
+                <div style={{textAlign: 'center'}}>
+                    <div style={{height:50}}></div>
+                    <Loader 
+                        type="Puff"
+                        color="#00BFFF"
+                        height="100"	
+                        width="100"
+                    /> 
+                </div>
+            )
+        } else {
+            return (
+                <div style={{textAlign: 'center'}}>
+                    <div style={{height:50}}></div>
+                    <Title level={3}>Your price estimate is...</Title>
+                    <Title level={2}> {this.state.price}</Title>
+                </div>
+            );
+        }
+        
     }
 }

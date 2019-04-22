@@ -39,19 +39,12 @@ const CustomizedForm = Form.create({
             )
         })
         }
-        {/* <Button type="primary" htmlType="submit" className="login-form-button" onSubmit={e => {
-          e.preventDefault()
-          console.log('submitted: ', this.props.questions)
-          }}>
-            Submit
-        </Button> */}
         <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
-            onSubmit={(e) => {console.log('')}}
           >
-            Log in
+            Submit
           </Button>
         </Form.Item>
     </Form>
@@ -78,14 +71,6 @@ export default class Survey extends React.Component {
                     />
                 </Col>
             </Row>
-            {/* <Row type="flex" justify="space-around" align="middle">
-                <Col span={10}>
-                <pre className="language-bash" style={{textAlign:'left'}}>
-                {JSON.stringify(questions, null, 2)}
-                </pre>
-                </Col>
-            </Row> */}
-            
         </div>
     );
   }

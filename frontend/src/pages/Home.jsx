@@ -1,7 +1,6 @@
 import React from "react";
-import { Typography, Divider, Layout,Row, Col, Breadcrumb } from 'antd';
+import { Typography, Row, Col, Button } from 'antd';
 
-const {Header, Footer, Sider, Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
 const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
@@ -10,13 +9,17 @@ export default class Home extends React.Component {
     render(){
         return (
             <div style={{ textAlign: 'center' }}>
-                <h1>Home</h1>
-                <p>Align Center</p>
                 <Row type="flex" justify="space-around" align="middle">
-                <Col span={4}><DemoBox value={100}>col-4</DemoBox></Col>
-                <Col span={4}><DemoBox value={50}>col-4</DemoBox></Col>
-                <Col span={4}><DemoBox value={120}>col-4</DemoBox></Col>
-                <Col span={4}><DemoBox value={80}>col-4</DemoBox></Col>
+                    <Title>Pr<span style={{color:'#1575BF',textShadow:'2px 2px 2px #558ABB'}}>AI</span>ce</Title>
+                </Row>
+                <Row>
+                    <Title level={4}>Intelligently Predict Austin Housing Prices</Title>
+                </Row>
+                <Row>
+                    <Button size={"large"} onClick={(e) => {
+                        e.preventDefault()
+                        this.props.history.push('/survey')
+                    }}>Get Started</Button>
                 </Row>
             </div>
             
